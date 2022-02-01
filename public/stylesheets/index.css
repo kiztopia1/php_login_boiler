@@ -1,0 +1,16 @@
+*{
+    color: rgb(27, 27, 31);
+}
+a{
+    color: rgb(27, 27, 31)!important;
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+}
+nav .links{
+    display: flex;
+}
