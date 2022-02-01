@@ -1,7 +1,7 @@
 <?php include('../../private/initialize.php') ?>
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +10,19 @@
 </head>
 <body>
     <h2>sign up </h2>
-    <form action="<?php FORM_PATH. '/signup.php' ?>">
+    <?php $users = query_get_users();
+    $count = mysqli_num_rows($users);
+    echo $count;?>
+
+    <?php while($user = mysqli_fetch_assoc($users)){ ?>
+
+    <?php }; ?>
+    <form action="../../private/form//signup.php" method="POST">
         <label for="name">name</label>
-        <input type="text" id="name">
+        <input type="text" id="name" name="name">
         <label for="password">password</label>
-        <input type="text" id="password">
-        <button>sign up </button>
+        <input type="text" id="password" name="password">
+        <button type="submit" name='submit' >sign up </button>
     </form>
 </body>
 </html>

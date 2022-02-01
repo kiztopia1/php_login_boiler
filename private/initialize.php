@@ -12,4 +12,8 @@ require_once('functions.php');
 require_once('db.php');
 require_once('query_functions.php');
 $db = db_connect();
+
+if(!$db) {
+    die(mysqli_connect_error());
+}
 ?>

@@ -1,8 +1,8 @@
 <?php
 
 define('server', 'localhost');
-define('user', 'webuser');
-define('password', '1234');
+define('user', 'root');
+define('password', '');
 define('db_name', 'phpLogin')
 
 ?>
