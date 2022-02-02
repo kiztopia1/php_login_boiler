@@ -35,10 +35,13 @@
     };
     function query_add_user($name, $password) {
         global $db;
-        $sql = 'insert into users ';
-        $sql .= '(name, password) values ';
-        $sql .= '("'. $name.'" , "'. $password. '" )';
-        $result = mysqli_query($db, $sql);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $sql = 'insert into users (name, password) values ( ? , ? )';
+        $stmt = mysqli_stmt_init($db);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, 'ss', $name, $hashed_password);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);     
         return $result;
     }
 
