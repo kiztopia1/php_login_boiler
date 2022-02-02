@@ -6,12 +6,21 @@ if( isset($_POST['name']) and isset($_POST['password'])){
     $password = $_POST['password'];
 
     echo $name . $password;
-    $name_check_result = query_check_username($name);
-    echo mysqli_num_rows($name_check_result);
+    $name_and_password_verify = query_check_user_password($name, $password);
+    if($name_and_password_verify == true){
+        session_start();
+        $_SESSION['name'] = $name;
+        echo $name . 'done';
+    }else{
+        header("location: ". '../../public/signin?error=not matched');
+        exit();
+    }
+
 
 
     
 }else{
-    echo 'not work';
+    header("location: ". '../../../public/signin');
+        exit();
 }
 ?>

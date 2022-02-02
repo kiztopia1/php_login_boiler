@@ -13,5 +13,7 @@ if( isset($_POST['name']) and isset($_POST['password'])){
     
 }else{
     echo 'not work';
+    header("location: ". '../../../public/signup');
+    exit();
 }
 ?>
